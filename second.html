@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/content.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.02430.js"></script>
+</head>
+<body>
+    <div class="loader-wrap">
+        <div class="loader"></div>
+    </div>
+    <div class="main-wrap">
+        <div class="top-header-2">
+            <div class="logo-2">
+                <a href="index.html"><img src="static/logo2.png"></a>
+            </div>
+        </div>
+        <div class="rooms">
+            <img class="rooms-bg" src="static/sec_bg.png">
+            <a class="rooms-fg" id="fg-rd-1" href="rd-1"><img src="static/sec_fg_1.png"></a>
+            <a class="rooms-fg" id="fg-rd-2" href="rd-2"><img src="static/sec_fg_2.png"></a>
+            <a class="rooms-fg" id="fg-rd-3" href="rd-3"><img src="static/sec_fg_3.png"></a>
+            <a class="rooms-fg" id="fg-rd-4" href="rd-4"><img src="static/sec_fg_4.png"></a>
+            <a class="rooms-fg" id="fg-rd-5" href="rd-5"><img src="static/sec_fg_5.png"></a>
+            <a class="rooms-fg" id="fg-rd-6" href="rd-6"><img src="static/sec_fg_6.png"></a>
+            <a class="btn btn-up" id="btn-rd-1" href="rd-1">学院近期成果</a>
+            <a class="btn btn-up" id="btn-rd-2" href="rd-2">奖杯奖章</a>
+            <a class="btn btn-up" id="btn-rd-3" href="rd-3">师资队伍</a>
+            <a class="btn btn-up" id="btn-rd-4" href="rd-4">优秀学生</a>
+            <a class="btn btn-down" id="btn-rd-5" href="rd-5">科技创新中心</a>
+            <a class="btn btn-down" id="btn-rd-6" href="rd-6">学生组织</a>
+            <div class="third-wrap">
+                <div class="third-back1"><a href="#"><i class="fa fa-arrow-circle-o-left fa-3x"></i></a></div>
+                <div class="third-content">
+                    <div class="tabs">
+                        <ul class="tab-links">
+                            <li class="active"><a href="#tab1">学生会</a></li>
+                            <li><a href="#tab2">咨委会</a></li>
+                            <li><a href="#tab3">党支部</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="tab1" class="tab active">
+                                <a href="#"><img src="img/1-2.jpg" /><span>部门设置</span></a>
+                                <a href="#"><img src="img/2.jpg" /><span>领导团体</span></a>
+                                <a href="#"><img src="img/3.jpg" /><span>优秀个人</span></a>
+                                <a href="#"><img src="img/4.jpg" /><span>优秀活动</span></a>
+                                <a href="#"><img src="img/1-2.jpg" /><span>部门设置</span></a>
+                                <a href="#"><img src="img/2.jpg" /><span>领导团体</span></a>
+                                <div></div>
+                            </div>
+                        </div>
+						<div class="page">
+							<a href="#page-prev"><span>上一页</span></a>
+							<a href="#page-1"><span>1</span></a>
+							<span>...</span>
+							<a href="#page-4"><span>4</span></a>
+							<a href="#page-5"><span>5</span></a>
+							<span>6</span>
+							<a href="#page-7"><span>7</span></a>
+							<a href="#page-8"><span>8</span></a>
+							<span>...</span>
+							<a href="#page-10"><span>10</span></a>
+							<a href="#page-next"><span>下一页</span></a>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+			var pos="0000";		//模块号
+			var id=0;			//图片id
+			var img_num=0;		//图片数量
+			var last=0;			//页码数
+			var currentPage=0;	//当前页码号
+
+			//var last;
+			//var img_num;
+            $('.rooms-fg').on('click', function(e) {
+                var rdwrap = $('.third-wrap');
+                if (!rdwrap.hasClass('divshow')) {
+                    rdwrap.addClass('divshow');
+                    rdwrap.fadeIn(200);
+                }
+                var curAttr = $(this).attr('href');
+                $('#btn-' + curAttr).addClass('active').siblings('.btn').removeClass('active');
+                e.preventDefault();
+            });
+            
+            $('.btn').on('click', function(e) {
+                var rdwrap = $('.third-wrap');
+                if (!rdwrap.hasClass('divshow')) {
+                    rdwrap.addClass('divshow');
+                    rdwrap.fadeIn(200);
+                }
+                var curAttr = $(this).attr('href');
+                $('#btn-' + curAttr).addClass('active').siblings('.btn').removeClass('active');
+                e.preventDefault();
+            });
+            
+            $('.third-back1 a').on('click', function(e){
+				if(pos%10!=0){
+					e.preventDefault();
+					pos=pos.substr(0,2)+"00";
+					show(pos);
+				}else{
+					$('.third-wrap').fadeOut(200).removeClass('divshow');
+					$('.btn').removeClass('active');
+					e.preventDefault();
+				}
+            });
+            
+            
+            $('.tab').on('scroll', function(e){
+                $(this).children('.page').css('bottom', 0);
+            });
+			
+			$('div.rooms a.rooms-fg').click(clickout);
+			$('div.rooms a.btn-up').click(clickout);
+			$('div.rooms a.btn-down').click(clickout);
+			
+			function clickout(){
+				var _id=$(this).attr('id').split('-')[2];
+				pos=_id+"100"; 			//模块设置
+				show(pos);
+				
+			};
+			function show(ppos){
+				$.post("php/structure.php",
+				{
+					pos:ppos
+				},
+				function(menus,status){
+					if(status=="success"){
+						var menu=menus.split('|');
+						var mu;
+						var html;
+						var activeId;
+						
+						/***get active id****/
+						if(ppos%100==0){
+							activeId=ppos/100%10;
+						}else{
+							activeId=ppos%10;
+						}
+						
+						/**show menus***/
+						$('div.tabs ul.tab-links').empty();
+						for(var i=0;i<menu.length;i++){
+							mu=menu[i];
+							if(mu[0]=='_'){
+								mu=mu.substr(1);
+								if(mu=="") break;
+							}else{
+								mu=mu.split('-')[0];
+							}
+							html='<li><a href="#" class="topmenu-'+(i+1)+'">'+mu+'</a></li>';
+							$('div.tabs ul.tab-links').append(html);
+						}
+						$('div.tabs ul.tab-links li').removeClass('active');
+						$('div.tabs ul.tab-links li').eq(activeId-1).addClass('active');
+						
+						/***设置菜单点击事件****/
+						$('div.tabs ul.tab-links li a').on('click', function(e)  {
+							e.preventDefault();
+							var k=$(this).attr('class').substr(-1);
+							if(ppos%100==0){
+								pos=ppos[0]+k+"00";
+							}else{
+								pos=ppos.substr(0,3)+k;
+							}
+							show(pos);
+						});
+						
+						/***active contents***/
+						mu=menu[activeId-1];
+						if(mu[0]=='_'){
+							id=0;
+							$.post('php/getImageNum.php',
+							{
+								pos:ppos
+							},
+							function(num,status){
+								if(status=='success'){
+									if(num=="") img_num=0;
+									else img_num=parseInt(num);
+									showPictures(ppos);
+								}
+							});
+						}else{
+							showSubmenu(mu,activeId);
+						}
+						
+						/***页码初始化*****/
+						showPages(ppos);
+					}
+				});
+			};
+			function showPictures(ppos){
+				var content=$('div.tab-content div.active');
+				var html;
+				var length;
+				content.removeClass('tab_menu');
+				content.addClass('tab');
+				content.empty();
+				if(id<img_num-6){
+					length=6;
+				}else if(id<img_num){
+					length=img_num-id;
+				}else return;
+				$.post('php/getTitle.php',
+				{
+					pos:ppos,
+					id:id,
+					length:length
+				},
+				function(title,status){
+					if(status=="success"){
+						var titles=title.split('|');
+						content.empty();
+						
+						for(var i=0;i<titles.length;i++){
+							html='<a href="#"><img src="php/getOneImage.php?pos='+ppos+'&&id='+(id+i)+'" /><span>'+titles[i]+'</span></a>';
+							content.append(html);
+						}
+						id+=length;
+					}
+					
+					/***点击事件绑定*****/
+					content.find('a').off('click');
+					content.find('a').on('click',function(e){
+						e.preventDefault();
+						var parameter=$(this).find('img').attr('src').split('?')[1];
+						var image=$(this).find('img');
+						var width=image[0].naturalWidth;
+						var height=image[0].naturalHeight;
+						if(width>height)
+							window.location="./1.html?num="+img_num+"&&"+parameter;
+						else
+							window.location="./2.html?num="+img_num+"&&"+parameter;
+					});
+					
+				});
+			};
+			function showSubmenu(menu,id){
+				var mu=menu.split('-');
+				var content=$('div.tab-content div.active');
+				var html;
+				content.removeClass('tab');
+				content.addClass('tab_menu');
+				content.empty();
+				for(var i=1;i<mu.length;i++){
+					if(mu[i][0]=="_"){
+						mu[i]=mu[i].substr(1);
+					}
+					html='<a href="#"><img src="img/'+id+'-'+i+'.jpg" /><span>'+mu[i]+'</span></li>';
+					content.append(html);
+				}
+				/***目录点击事件******/
+				content.children().click(function(e){
+					e.preventDefault();
+					var k=$(this).children().attr('src').substr(-5,1);
+					if(pos%100==0){
+						pos=pos.substr(0,2)+k+'1';
+					}else{
+						return;
+					}
+					show(pos);
+				});
+				
+			}
+			
+			function showPages(pos){
+			$.post('php/pages.php',
+			{
+				pos:pos
+			},function(num,status){
+				if(status=="success"){
+					last=Math.ceil(num/6);
+					currentPage=1;
+					var page=$('div.third-content div.tabs div.page');
+					page.empty();
+					var html;
+					html='<a href="#page-prev"><span>上一页</span></a>';
+					page.append(html);
+					for(var i=1;i<4&&i<=last;i++){
+						if(i==currentPage){
+							html='<span>'+i+'</span>';
+						}
+						else {
+						html='<a href="#page-'+i+'"><span>'+i+'</span></a>';
+						}
+						page.append(html);
+					}
+					if(last==4){
+						html='<a href="#page-4"><span>4</span></a>';
+						page.append(html);
+					}else if(last>4){
+						html='<span>...</span>';
+						page.append(html);
+						html='<a href="#page-'+last+'"><span>'+last+'</span></a>';
+						page.append(html);
+					}
+					html='<a href="#page-next"><span>下一页</span></a>';
+					page.append(html);
+					
+					page.find('a').off('click');
+					page.find('a').on('click',pagesTransform);
+				}
+			});
+		}
+		
+		function pagesTransform(e){
+			e.preventDefault();
+			
+			var page=$('div.third-content div.tabs div.page');
+			var attr = $(this).attr('href').split('-')[1];
+			var start,end;
+			var html;
+			if(attr=="prev"){
+				if(currentPage>1) currentPage-=1;
+				else return;
+			}else if(attr=="next"){
+				if(currentPage<last) currentPage+=1;
+				else return;
+			}else{
+				currentPage=parseInt(attr);
+			}
+			
+			start=((currentPage-2)<1? 1 : currentPage-2);
+			end=((currentPage+2)>last? last : currentPage+2);
+			
+			if(start==2) {
+				start=1;
+				end-=1;
+			}
+			if(end==last-1){
+				start+=1;
+				end=last;
+			}
+			
+			page.empty();
+			html='<a href="#page-prev"><span>上一页</span></a>';
+			page.append(html);
+			
+			if(start!=1){
+				html='<a href="#page-1"><span>1</span></a><span>...</span>';
+				page.append(html);
+			}
+			for(var i=start;i<=end;i++){
+				if(i==currentPage){
+					html='<span>'+i+'</span>';
+				}else {
+					html='<a href="#page-'+i+'"><span>'+i+'</span></a>';
+				}
+				page.append(html);
+			}
+			
+			if(end!=last){
+				html='<span>...</span><a href="#page-'+last+'"><span>'+last+'</span></a>';
+				page.append(html);
+			}
+			
+			html='<a href="#page-next"><span>下一页</span></a>';
+			page.append(html);
+			page.find('a').off('click');
+			page.find('a').on('click',pagesTransform);
+			
+			/***图片变化*****/
+			id=(currentPage-1)*6;
+			showPictures(pos);
+		}
+	});
+		
+		
+		$('.page a').on('click', function(e){
+			var attr = $(this).attr('href').split('-')[1];
+			if (attr == 'prev') {
+
+			} else if (attr == 'next') {
+
+			} else {
+
+			};
+			
+			e.preventDefault();
+		});
+		
+		
+		
+        window.addEventListener('load', function(){
+            console.log("Page Loaded!");
+            $('.loader-wrap').fadeOut(1000);
+            $('.rooms').addClass('animated zoomIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $('.rooms').removeClass('animated zoomIn');
+            });
+        });
+    </script>
+</body>
+</html>

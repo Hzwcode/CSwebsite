@@ -1,0 +1,36 @@
+*{ 
+    margin:0;
+    padding:0;
+}
+
+/*
+body{
+    background-color:rgb(48, 166, 229);
+}
+*/
+.container section figure img{
+    width:340px;
+    height:200px;
+}
+
+
+.close_page{
+    float:right;
+    text-align: right;
+    margin-right:20px;
+    margin-top:10px;
+}
+
+.close_page img{
+    width:35%;
+    border-radius:50%;
+}
+
+
+.close_page img:hover{
+    background-color:white;
+}
+
+.clear{
+    clear:both;
+}

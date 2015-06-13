@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--        <meta content="always" name="referrer">-->
+		<title>四级界面</title>
+        <link rel="stylesheet" type="text/css" href="1.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			var parameter=window.location.search;
+			var parameters=parameter.split('&&');
+			var num=parameters[0].substr(5);
+			var pos=parameters[1].substr(4);
+			var id=parameters[2].substr(3);
+			var size;
+		</script>
+    </head>
+	<body>
+		<div class="container">
+            <div class="left">
+                <a href="#"><img src="img/left.png"/></a>
+            </div>
+            <div class="main-wrap">
+                <div class="title">
+                    <h2>团队介绍</h2>
+                </div>
+                <div class="imgs" id="imgs">
+				<script type="text/javascript">
+				document.getElementById('imgs').innerHTML='<img src="php/getOneImage.php?pos='+pos+'&&id='+(id-1)+'">';
+				</script>
+                </div>
+                <div class="texts">
+                    <p>
+                    </p>
+                </div>
+            </div><!-- /main-wrap -->
+            <div class="right">
+                <a href="#"><img src="img/right.png"/></a>
+            </div><!-- /right -->
+		</div><!-- /container -->
+		
+	<script type="text/javascript">
+	 $(document).ready(function(){
+		$.post('php/introduction.php',
+		{
+			pos:pos,
+			id:id
+		},
+		function(state,status){
+			if(status=="success"){
+				var intro=state.split('|')[0];
+				var title=state.split('|')[1];
+				size=state.split('|')[2];
+				intro=intro.split("\n");
+				$('div.main-wrap div.title h2').text(title);
+				$('div.main-wrap div.texts').empty();
+				for(var i=0;i<intro.length;i++){
+					$('div.main-wrap div.texts').append('<p>'+intro[i]+'</p>');
+				}
+				
+			}
+		});
+		
+		//$('div.container div.main-wrap div.imgs img').attr('src','php/getOneImage.php?pos='+pos+'&&id='+id);
+		
+		$('div.container div.left a').click(function(){
+			id=(id==1? 1: id-1);
+			if(size=='_') return;
+			load(id);
+		});
+		
+		$('div.container div.right a').click(function(){
+			id=(id==num?num: parseInt(id)+1);
+			if(size=='_') return;
+			load(id);
+		});
+		
+		function load(id){
+			var width=size.split('*')[0];
+			var height=size.split('*')[1];
+			var href;
+			if(parseInt(width)>parseInt(height)){
+				href="./1.html?num="+num+"&&pos="+pos+"&&id="+id;
+			}else{
+				href="./2.html?num="+num+"&&pos="+pos+"&&id="+id;
+			}
+			window.location=href;
+			
+		}
+		});
+	</script>
+		
+	</body>
+</html>

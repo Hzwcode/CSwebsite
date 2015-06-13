@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.02430.js"></script>
+</head>
+<body>
+    <div class="loader-wrap">
+        <div class="loader"></div>
+    </div>
+    <div class="main-wrap">
+        <div class="top-header-1">
+            <div class="logo-1">
+                <a href="index.html"><img src="static/logo.png"></a>
+            </div>
+        </div>
+        <div class="building">
+            <img class="building-title" src="static/title1.png">
+            <div class="video-wrap">
+                <img class="gif1" src="./static/video1_1024.gif" width="100%" />
+                <img class="gif2" data-gifffer="./static/video2_1024.gif" width="100%" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <script type="text/javascript" src="js/gifffer.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', function(){
+            console.log("Page Loaded!");
+            Gifffer();
+            $('.gif1').on('click', function(e){
+                $(this).fadeOut();
+                $('.building-title').fadeOut();
+                $('.gif2').trigger('click');
+                setTimeout(function(){
+                    window.location = './second.html';
+                }, 1400);
+                e.preventDefault();
+            });
+            $('.loader-wrap').fadeOut(1000);
+        });
+        $(document).ready(function(){
+        });
+    </script>
+</body>
+</html>

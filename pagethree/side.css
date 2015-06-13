@@ -1,0 +1,114 @@
+*{ 
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100%;
+    font-family:arial;
+}
+body.sideMenu{
+    margin:0;
+    -webkit-transform:none;
+    transform:none;
+}
+#sideToggle{
+    display:none;
+}
+#sideToggle:checked + aside{
+    left:0;
+}
+#sideToggle:checked ~ #wrap{
+    padding-left:180px;
+}
+body > aside{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-180px;
+    width:180px;
+    background:rgba(50, 104, 241, 0.93);
+    transition:0.2s ease-out;
+    -webkit-transition:0.2s ease-out;
+}
+body > aside > h2{
+    color:#fff;
+    text-align:center;
+    font-weight:normal;
+    padding:10px;
+    background-color:rgba(153, 0, 0, 1);
+}
+#wrap{
+    height:0px;
+    margin-left:20px;
+/*    padding:10px;*/
+    transition:0.25s ease-out;
+    -webkit-transition:0.25s ease-out;
+}
+#wrap > label{
+    display:inline-block;
+}
+
+#wrap > label{ 
+    background:rgba(255, 114, 20, 0.93);
+    border-radius:50%;
+    color: #FFF;
+    cursor: pointer;
+    display: block;
+    font-family: Courier New;
+    font-size: 25px;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    line-height: 35px;
+    text-align: center;
+    text-shadow: 0 -4px;
+    position:relative;
+    top:14px;
+}
+#wrap > label:hover{
+    background:#000;
+}
+
+aside{
+    height:480px;
+}
+
+aside ul{
+    margin-top:25px;
+    padding-left:20px;
+    list-style: none;
+}
+
+aside ul li{
+    text-align: center;
+    margin-top:10px;
+    padding:6px;
+    width:80%;
+}
+
+aside ul li[class="check"] a{
+    background-color:rgba(242, 78, 2, 0.96);
+}
+
+aside ul li a{
+    padding:5px;
+    border-radius:15px;
+    font-family:"微软雅黑";
+    display:block;
+    color:white;
+    border:1px solid rgba(50, 104, 241, 0.93);
+    background-color:rgba(10, 48, 143, 0.93);
+}
+
+body > aside ul li:hover a{
+    cursor:pointer;
+    background-color:rgba(242, 78, 2, 0.96);
+    text-decoration:none;
+}
+
+body > aside ul li a:hover{
+    cursor:pointer;
+    background-color:rgba(242, 78, 2, 0.96);
+    text-decoration:none;
+}
