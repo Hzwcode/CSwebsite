@@ -368,7 +368,7 @@ img.rooms-bg {
     cursor: pointer;
 }
 .third-back1 > a {
-    content: url(../static/left.svg);
+    content: url(../static/left.png);
     color: rgb(55, 74, 93);
 }
 .third-close1 {
@@ -382,7 +382,7 @@ img.rooms-bg {
     cursor: pointer;
 }
 .third-close1 > a {
-    content: url(../static/close.svg);
+    content: url(../static/close.png);
     color: rgb(55, 74, 93);
 }
 
