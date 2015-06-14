@@ -61,7 +61,7 @@ class visitor_database{
 			$sql="select size from ".$dbname." where PRI=".$id." AND module=".$pos;
 			$result=mysqli_query($this->con,$sql);
 			if($result->num_rows==0) 
-				return null;
+				return "_";
 			$row=mysqli_fetch_assoc($result);
 			$size=$row['size'];
 		}else $size="_";

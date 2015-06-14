@@ -75,6 +75,7 @@ ul.tab-links {
     list-style:none;
 }
 
+
 .tab-links a {
     padding: 10px 15px;
     display: inline-block;
@@ -89,9 +90,10 @@ ul.tab-links {
     transition: all linear 0.15s;
 }
 
-.tab-links a:hover {
+.tab-links a:hover{
     color: rgb(72, 192, 251);
     text-decoration: none;
+    cursor:pointer;
 }
 
 li.active a, li.active a:hover {
@@ -167,6 +169,9 @@ li.active a, li.active a:hover {
     text-align:center;
     text-decoration: none;
     color: rgb(216, 216, 216);
+    max-width:240px;
+    max-height:28px;
+    overflow:hidden;
 }
 
 .tab-content .tab a:hover img{
@@ -185,6 +190,9 @@ li.active a, li.active a:hover {
     text-align:center;
     text-decoration: none;
     color: rgb(216, 216, 216);
+    max-width:200px;
+    max-height:28px;
+    overflow:hidden;
 }
 
 /*

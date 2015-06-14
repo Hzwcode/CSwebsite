@@ -14,7 +14,7 @@
 			var num=parameters[0].substr(5);
 			var pos=parameters[1].substr(4);
 			var id=parameters[2].substr(3);
-			var size;
+			var size=new Array();
 		</script>
     </head>
 	<body>
@@ -52,7 +52,8 @@
 			if(status=="success"){
 				var intro=state.split('|')[0];
 				var title=state.split('|')[1];
-				size=state.split('|')[2];
+				size[0]=state.split('|')[2];
+				size[1]=state.split('|')[3];
 				intro=intro.split("\n");
 				$('div.main-wrap div.texts h2').text(title);
 				$('div.main-wrap div.texts div.intro').empty();
@@ -67,21 +68,35 @@
 		
 		$('div.container div.left a').click(function(e){
 			e.preventDefault();
-			id=(id==1? 1: id-1);
-			size=size.split('-')[0];
-			if(size=='_') return;
-			load(id);
+			id=parseInt(id);
+			if(id==1){
+				return;
+			}else{
+				id=id-1;
+			}
+			//id=(id==1? 1: id-1);
+			if(size[0]=='_') return;
+			load(id,'l');
 		});
 		
-		$('div.container div.right a').click(function(){
-			id=(id==num?num: parseInt(id)+1);
-			if(size=='_') return;
-			load(id);
+		$('div.container div.right a').click(function(e){
+			e.preventDefault();
+			id=parseInt(id);
+			if(id==num) return;
+			else{
+				id=id+1;
+			}
+			//id=(id==num?num: parseInt(id)+1);
+			if(size[1]=='_') return;
+			load(id,'r');
 		});
 		
-		function load(id){
-			var width=size.split('*')[0];
-			var height=size.split('*')[1];
+		function load(id,dir){
+			var s;
+			if(dir=='l') s=size[0];
+			else if(dir=='r') s=size[1];
+			var width=s.split('*')[0];
+			var height=s.split('*')[1];
 			var href;
 			if(parseInt(width)>parseInt(height)){
 				href="./1.html?num="+num+"&&pos="+pos+"&&id="+id;
