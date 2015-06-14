@@ -36,7 +36,8 @@
             <a class="btn btn-down" id="btn-rd-5" href="rd-5">科技创新中心</a>
             <a class="btn btn-down" id="btn-rd-6" href="rd-6">学生组织</a>
             <div class="third-wrap">
-                <div class="third-back1"><a href="#"><i class="fa fa-arrow-circle-o-left fa-3x"></i></a></div>
+                <div class="third-back1"><a></a><!--<a href="#"><i class="fa fa-arrow-circle-o-left fa-3x"></i></a>--></div>
+                <div class="third-close1"><a></a><!--<a href="#"><i class="fa fa-times fa-3x"></i></a>--></div>
                 <div class="third-content">
                     <div class="tabs">
                         <ul class="tab-links">
@@ -44,7 +45,6 @@
                             <li><a href="#tab2">咨委会</a></li>
                             <li><a href="#tab3">党支部</a></li>
                         </ul>
-
                         <div class="tab-content">
                             <div id="tab1" class="tab active">
                                 <a href="#"><img src="img/1-2.jpg" /><span>部门设置</span></a>
@@ -88,9 +88,19 @@
 			//var img_num;
             $('.rooms-fg').on('click', function(e) {
                 var rdwrap = $('.third-wrap');
+                var logo = $('.logo-2');
+                var imgbg = $('.rooms-bg');
+                var imgfg = $('.rooms-fg');
+                var btn = $('.btn');
                 if (!rdwrap.hasClass('divshow')) {
                     rdwrap.addClass('divshow');
-                    rdwrap.fadeIn(200);
+                    rdwrap.addClass('animated flipInY').css('display', 'block').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        rdwrap.removeClass('animated flipInY');
+                        logo.addClass('blur');
+                        imgbg.addClass('blur');
+                        imgfg.addClass('blur');
+                        btn.addClass('blur');
+                    });
                 }
                 var curAttr = $(this).attr('href');
                 $('#btn-' + curAttr).addClass('active').siblings('.btn').removeClass('active');
@@ -99,9 +109,19 @@
             
             $('.btn').on('click', function(e) {
                 var rdwrap = $('.third-wrap');
+                var logo = $('.logo-2');
+                var imgbg = $('.rooms-bg');
+                var imgfg = $('.rooms-fg');
+                var btn = $('.btn');
                 if (!rdwrap.hasClass('divshow')) {
                     rdwrap.addClass('divshow');
-                    rdwrap.fadeIn(200);
+                    rdwrap.addClass('animated flipInY').css('display', 'block').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        rdwrap.removeClass('animated flipInY');
+                        logo.addClass('blur');
+                        imgbg.addClass('blur');
+                        imgfg.addClass('blur');
+                        btn.addClass('blur');
+                    });
                 }
                 var curAttr = $(this).attr('href');
                 $('#btn-' + curAttr).addClass('active').siblings('.btn').removeClass('active');
@@ -118,6 +138,23 @@
 					$('.btn').removeClass('active');
 					e.preventDefault();
 				}
+            });
+            $('.third-close1 a').on('click', function(e){
+                var rdwrap = $('.third-wrap');
+                var logo = $('.logo-2');
+                var imgbg = $('.rooms-bg');
+                var imgfg = $('.rooms-fg');
+                var btn = $('.btn');
+                rdwrap.removeClass('divshow');
+                rdwrap.addClass('animated flipOutY').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    rdwrap.removeClass('animated flipOutY').css('display', 'none');
+                });
+                logo.removeClass('blur');
+                imgbg.removeClass('blur');
+                imgfg.removeClass('blur');
+                btn.removeClass('blur');
+                $('.btn').removeClass('active');
+                e.preventDefault();
             });
             
             

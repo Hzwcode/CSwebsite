@@ -14,117 +14,139 @@
 }
     
 ul.tab-links {
-    margin-left: 0.5%;
-    margin-bottom: 0;
+    position: relative;
+    left: 6%;
+    margin: 2% 1% 0%;
     padding: 0px;
 }
 
 .tab-links li {
-    margin: 6px 3px 0px 0px;
     float:left;
     list-style:none;
 }
 
 .tab-links a {
-    padding:3px 15px;
-    display:inline-block;
-    border-radius: 5px 5px 0px 0px;
-    background:rgba(125, 202, 255, 0.88);
-    font-size:16px;
-    font-weight:600;
-    color:#4c4c4c;
-    transition:all linear 0.15s;
+    padding: 10px 15px;
+    display: inline-block;
+    border: 5px solid rgb(46, 62, 79) ;
+/*    border: 2px solid rgb(55, 74, 93);*/
+    font-size: 20px;
+    font-weight: bolder;
+/*    color: rgb(55, 74, 93); */
+    color:  rgba(51,73,94,0.90);
+    background-color: rgb(216, 216, 216);
+    transition: all linear 0.15s;
 }
 
 .tab-links a:hover {
-    background:#aaddff;
-    text-decoration:none;
+    color: rgb(72, 192, 251);
+    text-decoration: none;
 }
 
 li.active a, li.active a:hover {
-    background:rgba(245, 251, 255, 0.71);
-    color:#4c4c4c;
+    color: rgb(72, 192, 251);
 }
-
 /* 4th Level */
 .tab-content {
     position: absolute;
-    top: 7.2%;
-    left: 0.5%;
-    width: 99%;
-    height: 86.8%;
+    top: 8%;
+    left: 1%;
+    width: 98%;
+    height: 86%;
     margin: 0px;
-    border-radius: 0px 5px 5px 5px;
-    background:rgba(245, 251, 255, 0.71);
+/*    border-radius: 5px 5px 5px 5px;*/
+/*    background:rgba(255, 255, 255, 0.2);*/
 }
 
 .tab {
-    position: absolute;
+    position: relative;
     top: 0;
+    width: 1000px;
+    margin: 0 auto;
     height: 100%;
-    float: left;
-    display:none;
+/*    float: left;*/
+    display: none;
     overflow: hidden;
 }
 
 .tab.active {
-    display:block;
+    display: block;
 }
 
 .tab-content .tab a{
     position: relative;
     display: inline-block;
     text-align: center;
-    margin: 13px 67px 0px;
+    margin: 5% 6% 0;
 }
 
 .tab-content .tab a img{
-    width:160px;
-    height:160px;
+    width: 200px;
+    height: 200px;
 }
 
 .tab-content .tab_menu a{
     position: relative;
     display: inline-block;
     text-align: center;
-    margin: 92px 0px 0px 18px;
+    margin: 5% 2.3% 0;
 }
 
 .tab-content .tab_menu a img{
-    width:200px;
-    height:200px;
+    width: 200px;
+    height: 200px;
 }
 
 .tab-content .tab_menu a span{
     display:block;
     font-family:"微软雅黑", sans-serif;
-    margin-top:10px;
-    font-size:20px;
+    font-size:25px;
+    font-weight: bold;
     text-align:center;
     text-decoration: none;
-    color:black;
+    color: rgb(216, 216, 216);
 }
 
 .tab-content .tab a:hover img{
     opacity:0.8;
 }
 
+.tab-content .tab_menu a:hover img{
+    opacity:0.8;
+}
+
 .tab-content .tab a span{
     display:block;
     font-family:"微软雅黑", sans-serif;
-    font-size:18px;
+    font-size:25px;
+    font-weight: bold;
     text-align:center;
     text-decoration: none;
-    color:black;
+    color: rgb(216, 216, 216);
 }
 
+/*
 .tab-content .tab a:hover span{
-    color:rgba(5, 180, 255, 1);
+    color: rgb(216, 216, 216);
+}
+
+.tab-content .tab_menu a:hover span{
+    color: rgb(216, 216, 216);
+}
+*/
+
+@media screen and (min-width: 1536px) {
+    .tab-content .tab a{
+        margin: 12% 6% 0;
+    }
+    .tab-content .tab_menu a{
+        margin: 12% 6% 0;
+    }
 }
 
 .page {
     position: absolute;
-    bottom: 2px;
+    bottom: 1%;
     width: 100%;
     display: block;
     text-align: center;
@@ -140,9 +162,15 @@ li.active a, li.active a:hover {
 .page a span:visited, 
 .page a span:active {
     text-decoration: underline;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(216, 216, 216);
 }
 
 .page span {
     display: inline-block;
     padding: 2px 4px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(216, 216, 216);
 }
