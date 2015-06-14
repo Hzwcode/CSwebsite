@@ -151,7 +151,7 @@ img.rooms-bg {
 }
 
 .rooms {
-    position: absolute;
+    position: relative;
     margin: 0px auto 0px;
     top: 40px;
     width: 1024px;
