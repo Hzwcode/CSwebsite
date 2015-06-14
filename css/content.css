@@ -59,7 +59,8 @@ li.active a, li.active a:hover {
 /*    background:rgba(255, 255, 255, 0.2);*/
 }
 
-.tab {
+.tab,
+.tab_menu {
     position: relative;
     top: 0;
     width: 1000px;
@@ -187,3 +188,29 @@ li.active a, li.active a:hover {
     text-decoration: underline;
 }
 */
+
+@media screen and (min-width: 1536px) {
+    .tab,
+    .tab_menu {
+        position: relative;
+        top: 0;
+        width: 1400px;
+        margin: 0 auto;
+        height: 100%;
+    /*    float: left;*/
+        display: none;
+        overflow: hidden;
+    }
+    .tab-content .tab a{
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        margin: 10% 8% 0;
+    }
+    .tab-content .tab_menu a{
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        margin: 19% 5% 0% 1%;
+    }
+}
