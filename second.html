@@ -51,10 +51,8 @@
                                 <a href="#"><img src="img/2.jpg" /><span>领导团体</span></a>
                                 <a href="#"><img src="img/3.jpg" /><span>优秀个人</span></a>
                                 <a href="#"><img src="img/4.jpg" /><span>优秀活动</span></a>
-<!--
                                 <a href="#"><img src="img/1-2.jpg" /><span>部门设置</span></a>
                                 <a href="#"><img src="img/2.jpg" /><span>领导团体</span></a>
--->
                                 <div></div>
                             </div>
                         </div>
@@ -138,7 +136,19 @@
 					pos=pos.substr(0,2)+"00";
 					show(pos);
 				}else{
-					$('.third-wrap').fadeOut(200).removeClass('divshow');
+                    var rdwrap = $('.third-wrap');
+                    var logo = $('.logo-2');
+                    var imgbg = $('.rooms-bg');
+                    var imgfg = $('.rooms-fg');
+                    var btn = $('.btn');
+                    rdwrap.removeClass('divshow');
+                    rdwrap.addClass('animated flipOutY').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        rdwrap.removeClass('animated flipOutY').css('display', 'none');
+                    });
+                    logo.removeClass('blur');
+                    imgbg.removeClass('blur');
+                    imgfg.removeClass('blur');
+                    btn.removeClass('blur');
 					$('.btn').removeClass('active');
 					e.preventDefault();
 				}
