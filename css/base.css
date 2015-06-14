@@ -63,7 +63,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .top-header-2 {
-    position: relative;
+    position: absolute;
     z-index: 2;
     width: 100%;
 }
@@ -151,8 +151,9 @@ img.rooms-bg {
 }
 
 .rooms {
-    position: relative;
-    margin: 0px auto;
+    position: absolute;
+    margin: 0px auto 0px;
+    top: 40px;
     width: 1024px;
 }
 
@@ -338,7 +339,6 @@ img.rooms-bg {
         content: url(../static/dots.svg);
     }
 }
-
 
 .blur {	
     filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
