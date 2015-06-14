@@ -361,9 +361,10 @@ img.rooms-bg {
     position: absolute;
     z-index: 3;
     padding: 2px 6px;
-    top: 2.5%;
-    left: 1%;
+    top: 3.6%;
+    left: 9%;
 }
+
 .third-back1 a:hover {
     cursor: pointer;
 }
@@ -371,12 +372,13 @@ img.rooms-bg {
     content: url(../static/left.png);
     color: rgb(55, 74, 93);
 }
+
 .third-close1 {
     position: absolute;
     z-index: 3;
     padding: 2px 6px;
-    top: 1%;
-    right: 0.5%;
+    top: 2%;
+    right: 1%;
 }
 .third-close1 a:hover {
     cursor: pointer;
