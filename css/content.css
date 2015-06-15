@@ -142,11 +142,24 @@ li.active a, li.active a:hover {
     display: inline-block;
     text-align: center;
     margin: 4.5% 6% 0;
+    width:200px;
+    height:200px;
 }
 
-.tab-content .tab a img{
-    width: 200px;
-    height: 200px;
+.tab-content .tab a .pic_h{
+    max-width: 200px;
+    max-height: 200px;
+    text-align:center;
+    height:100%;
+/*    width:100%;*/
+}
+
+.tab-content .tab a .pic_w{
+    max-width: 200px;
+    max-height: 200px;
+    text-align:center;
+/*    height:100%;*/
+    width:100%;
 }
 
 .tab-content .tab_menu a{
@@ -154,11 +167,35 @@ li.active a, li.active a:hover {
     display: inline-block;
     text-align: center;
     margin: 15% 1.5% 0% 3.5%;
+    width:240px;
+    height:240px;
 }
 
-.tab-content .tab_menu a img{
-    width: 240px;
-    height: 240px;
+.tab-content .tab_menu a .pic_h{
+    max-width: 240px;
+    max-height: 240px;
+    text-align:center;
+    height:100%;
+}
+
+.tab-content .tab_menu a .pic_w{
+    max-width: 240px;
+    max-height: 240px;
+    text-align:center;
+    width:100%;
+}
+
+.tab-content .tab a span{
+    display:block;
+    font-family:"微软雅黑", sans-serif;
+    font-size:20px;
+/*    font-weight: bold;*/
+    text-align:center;
+    text-decoration: none;
+    color: rgb(216, 216, 216);
+    max-width:200px;
+    max-height:28px;
+    overflow:hidden;
 }
 
 .tab-content .tab_menu a span{
@@ -180,19 +217,6 @@ li.active a, li.active a:hover {
 
 .tab-content .tab_menu a:hover img{
     opacity:0.8;
-}
-
-.tab-content .tab a span{
-    display:block;
-    font-family:"微软雅黑", sans-serif;
-    font-size:20px;
-/*    font-weight: bold;*/
-    text-align:center;
-    text-decoration: none;
-    color: rgb(216, 216, 216);
-    max-width:200px;
-    max-height:28px;
-    overflow:hidden;
 }
 
 /*
