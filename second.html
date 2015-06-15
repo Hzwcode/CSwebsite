@@ -10,11 +10,6 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/modernizr.custom.02430.js"></script>
-    <style>
-        * {
-            overflow-x: hidden;
-        }
-    </style>
 </head>
 <body>
     <div class="loader-wrap">
@@ -114,26 +109,6 @@
                 e.preventDefault();
             });
             
-//            $('.btn').on('click', function(e) {
-//                var rdwrap = $('.third-wrap');
-//                var logo = $('.logo-2');
-//                var imgbg = $('.rooms-bg');
-//                var imgfg = $('.rooms-fg');
-//                var btn = $('.btn');
-//                if (!rdwrap.hasClass('divshow')) {
-//                    rdwrap.addClass('divshow');
-//                    rdwrap.addClass('animated flipInY').css('display', 'block').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-//                        rdwrap.removeClass('animated flipInY');
-//                        logo.addClass('blur');
-//                        imgbg.addClass('blur');
-//                        imgfg.addClass('blur');
-//                        btn.addClass('blur');
-//                    });
-//                }
-//                var curAttr = $(this).attr('href');
-//                $('#btn-' + curAttr).addClass('active').siblings('.btn').removeClass('active');
-//                e.preventDefault();
-//            });
             
             $('.third-back1 a').on('click', function(e){
 				if(pos%10!=0){
@@ -188,6 +163,7 @@
 			function clickout(){
 				var _id=$(this).attr('id').split('-')[2];
 				pos=_id+"100"; 			//模块设置
+				//if(pos=="2100") pos="2000";
 				show(pos);
 				
 			};
@@ -284,9 +260,15 @@
 					if(status=="success"){
 						var titles=title.split('|');
 						content.empty();
-						
+						alert(title);
 						for(var i=0;i<titles.length;i++){
-							html='<a href="#"><img src="php/getOneImage.php?pos='+ppos+'&&id='+(id+i)+'" /><span>'+titles[i]+'</span></a>';
+							var size=titles[i].split('-')[1];
+							titles[i]=titles[i].split('-')[0];
+							size=size.split('*');
+							var cs;
+							if(parseInt(size[0])>parseInt(size[1]))  cs='pic_w';
+							else cs='pic_h';
+							html='<a href="#"><img    class="'+cs+'" src="php/getOneImage.php?pos='+ppos+'&&id='+(id+i)+'" /><span>'+titles[i]+'</span></a>';
 							content.append(html);
 						}
 						id+=length;
@@ -312,6 +294,8 @@
 				var mu=menu.split('-');
 				var content=$('div.tab-content div.active');
 				var html;
+				var page=$('div.third-content div.tabs div.page');
+				page.remove();
 				content.removeClass('tab');
 				content.addClass('tab_menu');
 				content.empty();
@@ -437,7 +421,6 @@
 			showPictures(pos);
 		}
 	});
-		
 		
 		$('.page a').on('click', function(e){
 			var attr = $(this).attr('href').split('-')[1];

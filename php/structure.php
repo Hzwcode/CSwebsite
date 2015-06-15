@@ -1,5 +1,6 @@
 ﻿<?php
 	$pos = isset($_POST['pos']) ? htmlspecialchars($_POST['pos']) : '';
+	
 	switch($pos[0]){
 		case 1:
 			echo "_学院工作成果|_所获奖项";
