@@ -4,7 +4,7 @@
        -moz-box-sizing: border-box;
             box-sizing: border-box;
 }
-/* Set global font-family */
+/* Set global */
 * {
     font-family: sans-serif;
 }
@@ -162,12 +162,18 @@ img.rooms-bg {
     position: absolute;
 }
 .rooms > a.btn {
+    cursor: default;
     display: block;
     position: absolute;
     font-family: sans-serif;
     text-align: center;
+/*
     background-color: rgba(54, 156, 223, 0.2);
     color: #000000;
+*/
+    
+    background-color: rgba(54, 156, 223, 0.6);
+    color: #f2faff;
     width: 14%;
     height: 5.5%;
     font-size: 1.4em;
@@ -177,11 +183,13 @@ img.rooms-bg {
             transition: all 0.25s 0s;
 }
 
+/*
 .rooms > a.btn:hover,
 .rooms > a.btn.active {
     background-color: rgba(54, 156, 223, 0.6);
     color: #f2faff;
 }
+*/
 .rooms > a.btn.btn-up:after {
     display: block;
     position: absolute;
@@ -190,7 +198,7 @@ img.rooms-bg {
     z-index: -1;
     width: 100px;
     height: 200px;
-    content: url(../static/dots.svg);
+    content: url(../static/dots.png);
 }
 .rooms > a.btn.btn-down:before {
     display: block;
@@ -200,7 +208,7 @@ img.rooms-bg {
     z-index: -1;
     width: 100px;
     height: 200px;
-    content: url(../static/dots.svg);
+    content: url(../static/dots.png);
 }
 
 #fg-rd-1 {

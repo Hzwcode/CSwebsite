@@ -77,15 +77,15 @@ ul.tab-links {
 
 
 .tab-links a {
-    padding: 10px 15px;
+    margin: 3px;
+    padding: 8px 15px;
     display: inline-block;
-    border: 5px solid rgb(46, 62, 79) ;
-/*    border: 2px solid rgb(55, 74, 93);*/
+    border: 3px solid rgb(46, 62, 79) ;
     font-size: 20px;
     font-weight: bolder;
     font-family:"微软雅黑", sans-serif;
-/*    color: rgb(55, 74, 93); */
-    color:  rgba(51,73,94,0.90);
+    border-radius: 8px;
+    color: rgba(51,73,94,0.90);
     background-color: rgb(216, 216, 216);
     transition: all linear 0.15s;
 }
@@ -107,8 +107,6 @@ li.active a, li.active a:hover {
     width: 98%;
     height: 86%;
     margin: 0px;
-/*    border-radius: 5px 5px 5px 5px;*/
-/*    background:rgba(255, 255, 255, 0.2);*/
 }
 
 .tab{
