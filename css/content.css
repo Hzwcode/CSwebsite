@@ -32,7 +32,6 @@
     cursor: pointer;
 }
 .third-back1 > a {
-    content: url(../static/left.png);
     color: rgb(55, 74, 93);
 }
 
@@ -47,7 +46,6 @@
     cursor: pointer;
 }
 .third-close1 > a {
-    content: url(../static/close.png);
     color: rgb(55, 74, 93);
 }
 
