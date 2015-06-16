@@ -101,10 +101,13 @@ a:link, a:hover, a:visited, a:active {
 }
 
 /* Homepage Video */
+/*
 .building {
     cursor: pointer;
 }
+*/
 
+/*
 img.building-title {
     display: block;
     position: relative;
@@ -114,6 +117,7 @@ img.building-title {
     top: 100px;
     opacity: 0.9;
 }
+*/
 
 div.video-wrap { 
     position: relative;
