@@ -9,7 +9,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/modernizr.custom.02430.js"></script>
     <style>
-        * {
+        *{
             overflow: hidden;
             overflow-x: hidden;
             overflow-y: hidden;
@@ -33,6 +33,9 @@
                 <img class="gif2" data-gifffer="./static/video2_1024.gif" width="100%" />
             </div>
         </div>
+        <div class="enter_button">
+            <img src="static/enter.png">
+        </div>
         <div class="clearfix"></div>
     </div>
     <script type="text/javascript" src="js/gifffer.js"></script>
@@ -42,7 +45,20 @@
             Gifffer();
             $('.gif1').on('click', function(e){
                 $(this).fadeOut();
-                $('.building-title').fadeOut();
+                setTimeout(function(){
+                    $(".enter_button").fadeOut();
+                }, 300);
+                $('.gif2').trigger('click');
+                setTimeout(function(){
+                    window.location = './second.html';
+                }, 1400);
+                e.preventDefault();
+            });
+             $('.enter_button').on('click', function(e){
+                $('.gif1').fadeOut();
+                setTimeout(function(){
+                    $(".enter_button").fadeOut();
+                }, 300);
                 $('.gif2').trigger('click');
                 setTimeout(function(){
                     window.location = './second.html';

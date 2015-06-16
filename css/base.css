@@ -124,6 +124,20 @@ div.video-wrap {
 .video-wrap .gif2 {
     display: block;
     position: absolute;
+    cursor: default;
+}
+
+.enter_button img{
+    position:absolute;
+    top:73%;
+    left:45%;
+    z-index: 3;
+    width:10%;
+/*    height:100px;*/
+}
+
+.enter_button img:hover{
+    cursor:pointer;
 }
 
 .video-wrap .gif1 {
