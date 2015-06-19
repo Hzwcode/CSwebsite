@@ -5,7 +5,8 @@ var Gifffer = function() {
         var con = d.createElement('DIV'), cls = el[ga]('class'), id = el[ga]('id');
         cls ? con[sa]('class', el[ga]('class')) : null;
         id ? con[sa]('id', el[ga]('id')) : null;
-        con[sa]('style', 'position:relative;cursor:pointer;width:' + w + 'px;height:' + h + 'px;');
+//        con[sa]('style', 'position:relative;cursor:pointer;width:' + w + 'px;height:' + h + 'px;');
+        con[sa]('style', 'position:relative;cursor:pointer;width: 100%;');
         // dom placement
         el.parentNode.replaceChild(con, el);
         return con;
@@ -32,7 +33,8 @@ var Gifffer = function() {
                 if(!playing) {
                     playing = true;
                     gif = d.createElement('IMG');
-                    gif[sa]('style', 'width:' + w + 'px;height:' + h + 'px;');
+//                    gif[sa]('style', 'width:' + w + 'px;height:' + h + 'px;');
+                    gif[sa]('style', 'width: 100%;');
                     gif[sa]('data-uri', Math.floor(Math.random()*100000) + 1);
                     setTimeout(function() {
                         gif.src = url;

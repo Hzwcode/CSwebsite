@@ -140,22 +140,23 @@ li.active a, li.active a:hover {
     margin: 4.5% 6% 0;
     width:200px;
     height:200px;
+/*    overflow-x: hidden;*/
 }
 
 .tab-content .tab a .pic_h{
-    max-width: 200px;
+/*    max-width: 200px;*/
     max-height: 200px;
     text-align:center;
     height:100%;
-/*    width:100%;*/
+    width:100%;
 }
 
 .tab-content .tab a .pic_w{
     max-width: 200px;
     max-height: 200px;
-    text-align:center;
+    text-align: center;
 /*    height:100%;*/
-    width:100%;
+    width: 100%;
 }
 
 .tab-content .tab_menu a{

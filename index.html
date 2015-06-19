@@ -30,6 +30,7 @@
 <!--            <img class="building-title" src="static/title1.png">-->
             <div class="video-wrap">
                 <img class="gif1" src="./static/video1_2048.gif" width="100%" />
+                <div class="blank_bg"></div>
                 <img class="gif2" data-gifffer="./static/video2_1024.gif" width="100%" />
             </div>
         </div>
@@ -56,6 +57,7 @@
 //            });
              $('.enter_button').on('click', function(e){
                 $('.gif1').fadeOut();
+                $('.blank_bg').fadeOut();
                 setTimeout(function(){
                     $(".enter_button").fadeOut();
                 }, 300);
