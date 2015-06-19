@@ -42,6 +42,8 @@
     <script type="text/javascript" src="js/gifffer.js"></script>
     <script type="text/javascript">
         window.addEventListener('load', function(){
+            var height = $('.gif1')[0].clientHeight * 0.5;
+            $('.enter_button').css('top', height + 'px');
             console.log("Page Loaded!");
             Gifffer();
 //            $('.gif1').on('click', function(e){
@@ -68,6 +70,10 @@
                 e.preventDefault();
             });
             $('.loader-wrap').fadeOut(1000);
+        });
+        window.addEventListener('resize', function(){
+            var height = $('.gif1')[0].clientHeight * 0.5;
+            $('.enter_button').css('top', height + 'px');
         });
         $(document).ready(function(){
         });

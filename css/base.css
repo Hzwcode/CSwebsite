@@ -131,13 +131,17 @@ div.video-wrap {
     cursor: default;
 }
 
-.enter_button img{
+.enter_button {
     position:absolute;
     top:77%;
     left:45%;
     z-index: 10;
-    width:10%;
+/*    width:10%;*/
 /*    height:100px;*/
+}
+
+.enter_button img {
+    width: 50%;
 }
 
 .enter_button img:hover{
